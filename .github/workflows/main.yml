@@ -1,0 +1,45 @@
+Skip to content
+Navigation Menu
+Sign in
+bkjodi2
+/
+Monshsus
+Public
+Code
+Issues
+Pull requests
+1
+Run Monshsus Workflow
+Run Monshsus Workflow #8
+Workflow file for this run
+.github/workflows/main.yml at sik
+name: Run Workflow
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '*/240 * * * *'
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v2
+
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+
+
+      - name: Install required packages which needed
+        run: |
+          pip install requests
+      - name: Run monster.py
+        run: ls && python3 n.py
+        
+Update monster.py · roxz1990/sik · GitHub
